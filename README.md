@@ -87,13 +87,40 @@ python evaluate_maskrcnn.py
 
 ---
 
-## 📊 Example Results
+## 📊 Evaluation Results
 
-| Metric         | Value (example) |
-| -------------- | --------------- |
-| mAP (IoU=0.50) | 82.4%           |
-| mAP (IoU=0.75) | 69.3%           |
-| Overall mAP    | 65.1%           |
+### Bounding Box (bbox) AP:
+
+| Metric              | Value |
+| ------------------- | ----- |
+| AP@\[IoU=0.50:0.95] | 50.2% |
+| AP@\[IoU=0.50]      | 61.4% |
+| AP@\[IoU=0.75]      | 58.2% |
+| AP@\[small]         | 10.7% |
+| AP@\[medium]        | 31.3% |
+| AP@\[large]         | 52.6% |
+
+### Segmentation (segm) AP:
+
+| Metric              | Value |
+| ------------------- | ----- |
+| AP@\[IoU=0.50:0.95] | 47.3% |
+| AP@\[IoU=0.50]      | 60.8% |
+| AP@\[IoU=0.75]      | 54.5% |
+| AP@\[small]         | 5.4%  |
+| AP@\[medium]        | 25.2% |
+| AP@\[large]         | 50.8% |
+
+### Average Recall (AR):
+
+| Metric          | BBox AR | Segm AR |
+| --------------- | ------- | ------- |
+| AR\@maxDets=1   | 50.7%   | 48.7%   |
+| AR\@maxDets=10  | 54.7%   | 52.3%   |
+| AR\@maxDets=100 | 54.7%   | 52.3%   |
+| AR@\[small]     | 16.0%   | 15.1%   |
+| AR@\[medium]    | 37.0%   | 33.9%   |
+| AR@\[large]     | 57.0%   | 54.6%   |
 
 ---
 
@@ -103,6 +130,15 @@ python evaluate_maskrcnn.py
 * Framework: Detectron2
 * Mask R-CNN is used only to segment instruments from the CholecT50 dataset.
 * Replace `NUM_CLASSES = 7` if your dataset has a different number of instrument classes.
+
+---
+
+## 📌 TODO
+
+* Add instance visualization script
+* Evaluate per-class mAP
+* Support EndoVis 2017 dataset
+* Add CLI for training config
 
 ---
 
